@@ -31,7 +31,7 @@
       var capt_k="";
       var k={{v_set|tojson}};
       for(let i=0;i<k.length;i++){
-	  capt_k=k[i].charAt(0).toUpperCase()+text.slice(1);
+	  capt_k=k[i].charAt(0).toUpperCase()+k[i].slice(1);
 	  forShow = replacer( forShow, k[i], "mark2" );
 	  forShow = replacer( forShow, capt_k, "mark3" );
       }
