@@ -1,0 +1,24 @@
+/* ▼対象文章枠の装飾（任意） */
+#targetspace {
+    border: 2px solid #0a0;  /* 枠線 */
+    border-radius: 0.67em;   /* 角丸 */
+    padding: 0.5em;          /* 内側余白 */
+    width: 100%;             /* 横幅 */
+    box-sizing: border-box;  /* はみ出しを防ぐ対策 */
+    background-color: #fff;  /* 背景色 */
+    line-height: 1.6;        /* 行の高さ */
+}
+/* ▼ハイライトON/OFFボタン枠の装飾（任意） */
+.controlpanel {
+    margin: 1em 0;           /* 外側余白 */
+    padding: 1em;            /* 内側余白 */
+    background-color: #eee;  /* 背景色 */
+}
+/* ▼ハイライト部分の装飾 */
+span.mark1 { background-color: yellow; } /* 黄色ハイライト用 */
+span.mark2 { background-color: lime; }   /* 緑色ハイライト用 */
+span.mark3 { background-color: #0ff; }   /* 水色ハイライト用 */
+
+body{
+    back-ground-color: gray;
+}

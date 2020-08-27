@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tense_checker</title>
+<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+<body bgcolor="gray">
+<h1>Input one sentence.</h1>
+<form method="get" action="receive_get">
+<label>Sentence： <input type="text" name="my_name" value="{{sentence}}"></label>
+<input type="submit" value="Input">
+</form>
+<p></p>
+<label>Inputted Sentence: <p id="targetspace">{{sentence|tojson}}</p></label>
+<label>Verb phrases: <p id="ver"><font color="yellow">{{v_set}}</font></p></label>
+<label>Grammatical tense: <p><font color="blue">{{gname}}</font></p></label>
+
+<script>
+  var backupOriginal = "";
+  function replacer( str, word , att  ) {
+      var SearchString = '(' + word + ')';
+      var RegularExp = new RegExp( SearchString, "g" );
+      var ReplaceString = '<span class="' + att + '">$1</span>';
+      var ResString = str.replace( RegularExp , ReplaceString );
+      return ResString;
+  }
+  function addhighlight() {
+      backupOriginal = document.getElementById("targetspace").innerHTML;
+      var forShow = backupOriginal;;
+      var k={{v_set|tojson}};
+      for(let i=0;i<k.length;i++){
+	  forShow = replacer( forShow, k[i], "mark2" );
+      }
+      
+      document.getElementById("targetspace").innerHTML = forShow;
+  }
+  addhighlight();
+</script>
+</body>
+</html>
+
+<!Quote url:https://tkstock.site/2019/04/20/post-2850/ ミナピピンの研究室>
+<!Quote url:https://www.nishishi.com/javascript-tips/auto-word-highlighter.html
+表示文章中の、指定の単語だけを動的に強調表示(ハイライト)する方法              >
