@@ -83,6 +83,7 @@ def tense_check(word):
 def aspect_check(pos,i,tense):
     phrase=[]
     befound=False
+    havefound=False
     if tense==0:
         phrase.append("will")
         for j in range(i+1,len(pos)):
@@ -92,6 +93,7 @@ def aspect_check(pos,i,tense):
             elif pos[j][0]=="have":
                 tag[1]="perfect "
                 phrase.append(pos[j][0])
+                havefound=True
             elif pos[j][1]=="VBN":
                 if pos[j][0]=="been" and pos[j+1][1]=="VBG":
                     tag[2]="progressive"
@@ -109,6 +111,8 @@ def aspect_check(pos,i,tense):
             else:
                 tag[1]=""
                 tag[2]="simple"
+                if havefound==True:
+                    break
                 phrase.append(pos[j][0])
                 break
             
@@ -131,7 +135,7 @@ def aspect_check(pos,i,tense):
             elif pos[j][0]=="had":
                 tag[1]="perfect "
                 phrase.append(pos[j][0])
-
+                havefound=True
             elif pos[j][1]=="VBN":
                 if pos[j][0]=="been":
                     tag[2]="progressive"
@@ -145,6 +149,8 @@ def aspect_check(pos,i,tense):
             else:
                 tag[1]=""
                 tag[2]="simple"
+                if havefound==True:
+                    break
                 if befound==False and pos[j][0]!=".":
                     phrase.append(pos[j][0])
                 if j!=0:
@@ -170,6 +176,7 @@ def aspect_check(pos,i,tense):
             elif pos[j][0]=="have" or pos[j][0]=="has":
                 tag[1]="perfect "
                 phrase.append(pos[j][0])
+                havefound=True
 
             elif pos[j][1]=="VBN" or pos[j][1]=="VBD":
                 if pos[j][0]=="been":
@@ -184,6 +191,10 @@ def aspect_check(pos,i,tense):
             else:
                 tag[1]=""
                 tag[2]="simple"
+
+                if havefound==True:
+                    break
+
                 if befound==False and pos[j][0]!=".":
                     phrase.append(pos[j][0])
                 if j!=0:
