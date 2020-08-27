@@ -150,6 +150,8 @@ def aspect_check(pos,i,tense):
                 tag[1]=""
                 tag[2]="simple"
                 if havefound==True:
+                    if befound==True:
+                        tag[1]=="perfect "
                     break
                 if befound==False and pos[j][0]!=".":
                     phrase.append(pos[j][0])
@@ -193,6 +195,8 @@ def aspect_check(pos,i,tense):
                 tag[2]="simple"
 
                 if havefound==True:
+                    if befound==True:
+                        tag[1]=="perfect "
                     break
 
                 if befound==False and pos[j][0]!=".":
