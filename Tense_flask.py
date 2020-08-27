@@ -75,7 +75,7 @@ def tense_check(word):
         tag[0]="..."
         tag[1]=""
         tag[2]=""
-        return "..."
+        return ""
     else:
        #v_col=print_hl(word.lower(), verbs)
        return verbs 
