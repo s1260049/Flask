@@ -207,4 +207,4 @@ def receive_get():
     return render_template('index.html',sentence=word,v_set=v_set,gname=gname)
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+    app.run(host="0.0.0.0")
